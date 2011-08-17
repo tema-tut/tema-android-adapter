@@ -1,0 +1,14 @@
+include debian/control
+include debian/copyright
+include debian/rules
+include debian/compat
+include debian/changelog
+include debian/tema-android-adapter.manpages
+include GNUmakefile
+include MANIFEST.in
+include LICENCE
+include tema.android-adapter.1
+recursive-include tests *.py
+include README*pdf
+include README*html
+

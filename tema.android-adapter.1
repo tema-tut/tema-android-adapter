@@ -1,0 +1,73 @@
+.TH tema.android-adapter.1 local "7 December 2010" "version 3.2"
+.SH NAME
+tema.android-adapter - Tool for running online Keyword-based tests in Android
+
+.SH SYNOPSIS
+.B tema.android-adapter
+.RB [ " options " ]
+target
+
+.SH DESCRIPTION
+tema.android-adapter is an automatic test tool for running Keyword-driven 
+tests in Android emulator and Android development phones. The tool can be used
+to run Model-Based Tests with the TEMA Test Engine, to run keyword-based 
+scripts, or by giving keywords interactively from a prompt.
+
+Adapter requires Android SDK. The tools directory of the SDK must be found 
+from path.
+
+.SH ARGUMENTS
+.TP
+.B target
+Target name to use for testrun.
+.SH OPTIONS
+.TP
+.B \-i, \--interactive
+Run tema.android-adapter in interactive mode
+.TP
+.B \-f FILENAME,\--file=FILENAME
+Runs a keyword script from the given file
+.TP
+.B \-a ADDRESS \-p PORT,\--address=ADDRESS \--port=PORT
+Runs a test from a TEMA MBT server in a given address and port
+.TP
+.B \--record
+Write testlog to logs directory
+.TP
+.B \-t DELAY,\--time=DELAY
+Delay (in seconds) between consecutive keywords
+.TP
+-B \--protocol=PROTOCOL
+HTTP or HTTPS. If not given, socket is used       
+.SH EXAMPLES
+Read keywords from file testfile.txt and execute them.
+
+.nf
+.ft B 
+    cat testfile.txt
+.ft
+        LaunchApp 'Contacts'
+.ft B
+    tema.android-adapter -f testfile.txt
+
+.ft R
+.fi
+Execute keywords interactively
+
+.nf
+.ft B
+    tema.android-adapter -i
+
+.ft R
+.fi
+Execute keywords using TEMA testengine
+
+.nf
+.ft B
+    tema.android-adapter -a localhost -p 9090
+
+.ft R
+.fi
+
+.SH SEE ALSO
+tema.testengine(1)
